@@ -1,54 +1,49 @@
 <template>
-  <div id="task1" class="task">
-    <h1>Задание 1</h1>
-    <div class="task_body">
-      <p class="desc">При клике на кнопку увеличивается количество лайков или дизлайков</p>
-      <div class="task_body-inner">
-        <p>Кол-во лайков - {{ likes }}</p>
-        <p>Кол-во дизлайков - {{ dislikes }}</p>
-        <button @click="addLike">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path
-                d="M21.406 9.558c-1.21-.051-2.87-.278-3.977-.744.809-3.283 1.253-8.814-2.196-8.814-1.861 0-2.351 1.668-2.833 3.329-1.548 5.336-3.946 6.816-6.4 7.401v-.73h-6v12h6v-.904c2.378.228 4.119.864 6.169 1.746 1.257.541 3.053 1.158 5.336 1.158 2.538 0 4.295-.997 5.009-3.686.5-1.877 1.486-7.25 1.486-8.25 0-1.648-1.168-2.446-2.594-2.506zm-17.406 10.442h-2v-8h2v8zm15.896-5.583s.201.01 1.069-.027c1.082-.046 1.051 1.469.004 1.563l-1.761.099c-.734.094-.656 1.203.141 1.172 0 0 .686-.017 1.143-.041 1.068-.056 1.016 1.429.04 1.551-.424.053-1.745.115-1.745.115-.811.072-.706 1.235.109 1.141l.771-.031c.822-.074 1.003.825-.292 1.661-1.567.881-4.685.131-6.416-.614-2.239-.965-4.438-1.934-6.959-2.006v-6c3.264-.749 6.328-2.254 8.321-9.113.898-3.092 1.679-1.931 1.679.574 0 2.071-.49 3.786-.921 5.533 1.061.543 3.371 1.402 6.12 1.556 1.055.059 1.024 1.455-.051 1.584l-1.394.167s-.608 1.111.142 1.116z"/>
-          </svg>
-        </button>
-        <button @click="addDislike">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path
-                d="M24 11.936c0-1-.986-6.373-1.486-8.25-.714-2.689-2.471-3.686-5.009-3.686-2.283 0-4.079.617-5.336 1.158-2.05.883-3.791 1.519-6.169 1.746v-.904h-6v12h6v-.73c2.454.585 4.852 2.066 6.4 7.402.483 1.66.972 3.328 2.833 3.328 3.448 0 3.005-5.531 2.196-8.814 1.106-.466 2.767-.692 3.977-.744 1.426-.06 2.594-.858 2.594-2.506zm-20 .064h-2v-8h2v8zm15.755-1.302l1.394.167c1.075.129 1.105 1.525.051 1.584-2.749.154-5.06 1.013-6.12 1.556.43 1.748.92 3.463.92 5.534 0 2.505-.781 3.666-1.679.574-1.993-6.859-5.057-8.364-8.321-9.113v-6c2.521-.072 4.72-1.041 6.959-2.005 1.731-.745 4.849-1.495 6.416-.614 1.295.836 1.114 1.734.292 1.661l-.771-.032c-.815-.094-.92 1.068-.109 1.141 0 0 1.321.062 1.745.115.976.123 1.028 1.607-.04 1.551-.457-.024-1.143-.041-1.143-.041-.797-.031-.875 1.078-.141 1.172 0 0 .714.005 1.761.099s1.078 1.609-.004 1.563c-.868-.037-1.069-.027-1.069-.027-.75.005-.875 1.028-.141 1.115z"/>
-          </svg>
-        </button>
-      </div>
-
-    </div>
-
-
+  <div id="app">
+    <Task1 :likes="likes" :dislikes="dislikes" ></Task1>
+    <Task2 :posts="posts" :showForm="showForm"></Task2>
   </div>
 
-  <div id="task2" class="task post">
-    <h1>Задание 2</h1>
-    <div class="task_body">
-      <p class="desc">Описание второго задания</p>
-      <div class="row task_body-inner">
-        <div class="col-sm-4 post_card">
-          <h2>Название</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolore eligendi eum expedita libero maxime
-            necessitatibus, odio odit quaerat quibusdam quod repudiandae? Aspernatur consequatur consequuntur eveniet
-            pariatur sint soluta vitae.</p>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
 
 </template>
 <script>
+import Task1 from "@/components/task1.vue";
+import Task2 from "@/components/task2.vue";
 export default {
+  components:{
+    Task1,
+    Task2
+  },
   data() {
     return {
       likes: 0,
       dislikes: 0,
+      posts: [
+        {
+          id: '1',
+          title: 'Меня зовут София Поварницина',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, blanditiis cum deserunt dolor doloremque explicabo facilis incidunt ipsam iste iusto molestiae provident qui quidem rem reprehenderit sunt totam voluptates, voluptatibus?'
+        },
+        {
+          id: '2',
+          title: 'Это отработка опыта с vue3',
+          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cum debitis dignissimos eius eligendi illo llum magni obcaecati optio, quisquam saepe similique tempore! Fuga illum inventore, itaque odio saepe suscipit!'
+        },
+        {
+          id: '3',
+          title: 'Посты отрисовываются с помощью v-for из массива',
+          body: 'Blanditiis consequatur corporis culpa, deleniti doloremque dolores error id inventore iure iusto labore natus   nihil optio quam qui reiciendis reprehenderit saepe ut! Dolore doloribus dolorum exercitationem, ipsa ipsam   molestiae tenetur?'
+        },
+        {
+          id: '4',
+          title: 'Последний пост',
+          body: 'Accusamus adipisci assumenda commodi dicta dolorem, dolorum eligendi esse, illo in ipsa iste labore maiores  minima natus nobis nostrum odio optio pariatur perferendis possimus praesentium quam rerum sed unde voluptatem! '
+        },
+
+      ],
+      showForm: false,
+      titleForm: '',
+      bodyForm: '',
     }
   },
   methods: {
@@ -57,7 +52,16 @@ export default {
     },
     addDislike() {
       this.dislikes += 1;
+    },
+    sendForm() {
+      let newPost = {
+        id: String(Date.now()), title: this.titleForm, body: this.bodyForm
+      }
+      this.posts.push(newPost)
+    this.titleForm=''
+      this.bodyForm=''
     }
+
   }
 }
 </script>
@@ -77,6 +81,7 @@ $white: white;
   box-sizing: border-box;
   font-family: $font-family;
   border-radius: 0.25rem;
+  transition: 0.3s;
 }
 
 body {
@@ -87,6 +92,21 @@ h1 {
   font-size: 3rem;
   font-weight: 100;
   padding-bottom: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
 }
 
 .task {
@@ -113,7 +133,6 @@ h1 {
 
   & button {
     background-color: $darken;
-    border: none;
     margin-right: 0.5rem;
     outline: none;
     color: $white;
@@ -126,12 +145,71 @@ h1 {
 }
 
 .post {
+  &_row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & form {
+      width: 100%;
+      display: flex;
+      margin: 10px;
+      justify-content: space-between;
+      @media(max-width: 768px) {
+        flex-direction: column;
+      }
+
+      & button {
+        @media(max-width: 768px) {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+      }
+
+      & input {
+        width: inherit;
+        margin-right: 10px;
+        padding: 10px 10px;
+        background-color: $dark;
+        color: $white;
+        @media(max-width: 768px) {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+
+        &::placeholder {
+          color: $darken;
+        }
+      }
+
+    }
+  }
+
   &_card {
-    background-color: $dark;
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px);
+    margin: 10px;
+    @media(max-width: 768px) {
+      width: 100%;
+    }
+    & p{
+      text-align: justify;
+    }
   }
 }
 
-button:hover{
-  cursor: pointer;
+button {
+  border: 2px solid transparent;
 }
+
+button:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid $darken;
+}
+
 </style>
