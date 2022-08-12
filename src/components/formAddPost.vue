@@ -1,7 +1,7 @@
 <template>
   <form v-if="showForm" @submit.prevent>
-    <input v-model='post.titleForm' type="text" placeholder="Название поста">
-    <input v-model='post.bodyForm' type="text" placeholder="Текст">
+    <input v-model='post.title' type="text" placeholder="Название поста">
+    <input v-model='post.body' type="text" placeholder="Текст">
     <button @click="sendForm">Добавить пост</button>
   </form>
 </template>
@@ -13,26 +13,27 @@ export default {
     showForm: {
       type: Boolean,
     },
-    titleForm: String,
-    bodyForm: String,
+    title: String,
+    body: String,
 
   },
   data() {
     return {
       post: {
-        titleForm: '',
-        bodyForm: '',
+        title: '',
+        body: '',
       }
     }
   },
   methods: {
 
     sendForm() {
+
       this.post.id = String(Date.now())
       this.$emit('createPost', this.post)
       this.post = {
-        titleForm: '',
-        bodyForm: ''
+        title: '',
+        body: ''
       }
 
     }
