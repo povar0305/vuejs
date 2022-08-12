@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Task1 :likes="likes" :dislikes="dislikes" ></Task1>
+    <Task1  ></Task1>
     <Task2 :posts="posts" :showForm="showForm"></Task2>
   </div>
 
@@ -16,8 +16,7 @@ export default {
   },
   data() {
     return {
-      likes: 0,
-      dislikes: 0,
+
       posts: [
         {
           id: '1',
