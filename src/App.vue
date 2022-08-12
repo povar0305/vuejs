@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Task1  ></Task1>
-    <Task2 :posts="posts" :showForm="showForm"></Task2>
+    <Task2></Task2>
   </div>
 
 
@@ -46,12 +46,7 @@ export default {
     }
   },
   methods: {
-    addLike() {
-      this.likes += 1;
-    },
-    addDislike() {
-      this.dislikes += 1;
-    },
+
     sendForm() {
       let newPost = {
         id: String(Date.now()), title: this.titleForm, body: this.bodyForm
