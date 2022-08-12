@@ -16,8 +16,9 @@
 
       </div>
       <div class="  post_row ">
-        <form-add-post :showForm="showForm" :titleForm="titleForm" :bodyForm="bodyForm"></form-add-post>
-        <post  :posts="posts"></post>
+        <form-add-post @createPost="addPost" :showForm="showForm" :titleForm="titleForm"
+                       :bodyForm="bodyForm"></form-add-post>
+        <post :posts="posts"></post>
       </div>
 
     </div>
@@ -25,7 +26,7 @@
 </template>
 <script>
 import FormAddPost from "@/components/formAddPost.vue";
-import  Post from "@/components/post.vue";
+import Post from "@/components/post.vue";
 
 export default {
   components: {
@@ -38,31 +39,34 @@ export default {
       posts: [
         {
           id: '1',
-          title: 'Меня зовут София Поварницина',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, blanditiis cum deserunt dolor doloremque explicabo facilis incidunt ipsam iste iusto molestiae provident qui quidem rem reprehenderit sunt totam voluptates, voluptatibus?'
+          titleForm: 'Меня зовут София Поварницина',
+          bodyForm: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, blanditiis cum deserunt dolor doloremque explicabo facilis incidunt ipsam iste iusto molestiae provident qui quidem rem reprehenderit sunt totam voluptates, voluptatibus?'
         },
         {
           id: '2',
-          title: 'Это отработка опыта с vue3',
-          body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cum debitis dignissimos eius eligendi illo llum magni obcaecati optio, quisquam saepe similique tempore! Fuga illum inventore, itaque odio saepe suscipit!'
+          titleForm: 'Это отработка опыта с vue3',
+          bodyForm: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet cum debitis dignissimos eius eligendi illo llum magni obcaecati optio, quisquam saepe similique tempore! Fuga illum inventore, itaque odio saepe suscipit!'
         },
         {
           id: '3',
-          title: 'Посты отрисовываются с помощью v-for из массива',
-          body: 'Blanditiis consequatur corporis culpa, deleniti doloremque dolores error id inventore iure iusto labore natus   nihil optio quam qui reiciendis reprehenderit saepe ut! Dolore doloribus dolorum exercitationem, ipsa ipsam   molestiae tenetur?'
+          titleForm: 'Посты отрисовываются с помощью v-for из массива',
+          bodyForm: 'Blanditiis consequatur corporis culpa, deleniti doloremque dolores error id inventore iure iusto labore natus   nihil optio quam qui reiciendis reprehenderit saepe ut! Dolore doloribus dolorum exercitationem, ipsa ipsam   molestiae tenetur?'
         },
         {
           id: '4',
-          title: 'Последний пост',
-          body: 'Accusamus adipisci assumenda commodi dicta dolorem, dolorum eligendi esse, illo in ipsa iste labore maiores  minima natus nobis nostrum odio optio pariatur perferendis possimus praesentium quam rerum sed unde voluptatem! '
+          titleForm: 'Последний пост',
+          bodyForm: 'Accusamus adipisci assumenda commodi dicta dolorem, dolorum eligendi esse, illo in ipsa iste labore maiores  minima natus nobis nostrum odio optio pariatur perferendis possimus praesentium quam rerum sed unde voluptatem! '
         },
 
       ],
       showForm: false,
-      titleForm: '',
-      bodyForm: '',
     }
   },
+  methods: {
+    addPost(post) {
+      this.posts.push(post)
+    }
+  }
 
 
 }

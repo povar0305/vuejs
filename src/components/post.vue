@@ -1,7 +1,7 @@
 <template>
   <div class=" post_card task_body-inner" v-for="post in posts" :key="post.id">
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.body }}</p>
+    <h2>{{ post.titleForm }}</h2>
+    <p>{{ post.bodyForm }}</p>
 
   </div>
 </template>
@@ -15,7 +15,8 @@ export default {
       type:Array,
       required:true
     }
-  }
+  },
+
 }
 </script>
 
