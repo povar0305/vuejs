@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Task1  ></Task1>
+    <Task1></Task1>
     <Task2></Task2>
   </div>
 
@@ -9,8 +9,9 @@
 <script>
 import Task1 from "@/components/task1.vue";
 import Task2 from "@/components/task2.vue";
+
 export default {
-  components:{
+  components: {
     Task1,
     Task2
   },
@@ -66,8 +67,12 @@ svg {
   padding: 3rem;
   font-weight: 300;
   background-color: $light;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  @media(max-width: 768px) {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 1rem;
+  }
 
   & .desc {
     padding-bottom: 10px;
@@ -82,18 +87,6 @@ svg {
       padding: 1rem;
 
     }
-  }
-
-  & button {
-    background-color: $darken;
-    margin-right: 0.5rem;
-    outline: none;
-    color: $white;
-    padding: 7px 20px;
-  }
-
-  & button path {
-    fill: $white;
   }
 }
 
@@ -149,20 +142,12 @@ svg {
     @media(max-width: 768px) {
       width: 100%;
     }
-    & p{
+
+    & p {
       text-align: justify;
     }
   }
 }
 
-button {
-  border: 2px solid transparent;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: transparent;
-  border: 2px solid $darken;
-}
 
 </style>
