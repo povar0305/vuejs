@@ -113,26 +113,10 @@ svg {
           margin-bottom: 10px;
         }
       }
-
-      & input {
-        width: inherit;
-        margin-right: 10px;
-        padding: 10px 10px;
-        background-color: $dark;
-        color: $white;
-        @media(max-width: 768px) {
-          width: 100%;
-          margin-right: 0;
-          margin-bottom: 10px;
-        }
-
-        &::placeholder {
-          color: $darken;
-        }
       }
 
     }
-  }
+
 
   &_card {
     display: flex;

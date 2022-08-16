@@ -1,7 +1,7 @@
 <template>
   <form v-if="showForm" @submit.prevent>
-    <input v-model='post.title'  required type="text" placeholder="Название поста">
-    <input v-model='post.body' required  type="text" placeholder="Текст">
+    <myInput v-model='post.title'  required type="text" placeholder="Название поста"></myInput>
+    <myInput v-model='post.body' required  type="text" placeholder="Текст"></myInput>
     <btn @click="sendForm">Добавить пост</btn>
   </form>
 </template>

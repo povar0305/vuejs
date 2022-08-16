@@ -45,6 +45,7 @@ export default {
   methods: {
     addPost(post) {
       this.posts.push(post)
+      console.log(post)
       localStorage.setItem('array_posts', JSON.stringify(this.posts));
     }
   },
