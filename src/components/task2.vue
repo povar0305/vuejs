@@ -27,13 +27,11 @@
 <script>
 import FormAddPost from "@/components/formAddPost.vue";
 import Post from "@/components/post.vue";
-import Btn from "@/components/UI/btn.vue";
 
 export default {
   components: {
     FormAddPost,
     Post,
-    Btn
   },
 
   data() {

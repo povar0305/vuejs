@@ -7,12 +7,8 @@
 </template>
 
 <script>
-import Btn from "@/components/UI/btn";
 export default {
   name: "formAddPost",
-  components:{
-    Btn
-  },
   props: {
     showForm: {
       type: Boolean,
