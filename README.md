@@ -1,5 +1,7 @@
 # vuejs
 
+Первый проект на vue. Постепенно будут добавлться задачи. 
+
 ## Project setup
 ```
 npm install
